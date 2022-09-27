@@ -96,7 +96,7 @@ function Boat_End(idx) {
 }
 
 function system_info() {
-    window.setInterval("Check()", 6000)
+    window.setInterval("Check()", 60000)
 }
 
 function Check() {
@@ -117,5 +117,25 @@ function Check() {
         boat_message += String(parseInt(total_rent_time_pm / rent_times_pm)) + " minutes\n" + "The longest renting time is : "
         boat_message += String(max_time_pm) + "minutes"
         alert(boat_message)
+    }
+}
+
+function Stop_boat(idx) {
+    if (boat_status[idx] != 2) {
+        boat_status[idx] = 2
+        var div = document.getElementById("main").children[idx + 1]
+        console.log(div)
+        div.className = "stop_boat_list"
+        start_btn = div.children[3].children[0]
+        end_btn = div.children[4].children[0]
+        start_btn.disabled = true
+        end_btn.disabled = true
+    } else {
+        var div = document.getElementById("main").children[idx + 1]
+        div.className = "boat_list"
+        start_btn = div.children[3].children[0]
+        end_btn = div.children[4].children[0]
+        start_btn.disabled = false
+        end_btn.disabled = false
     }
 }
