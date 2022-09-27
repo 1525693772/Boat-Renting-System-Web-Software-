@@ -1,11 +1,11 @@
 <?php
 session_start();
-if (isset($_SESSION['username'])) {
-    session_destroy();
-} else {
-    header("Location: ./login.html");
-    exit();
-}
+// if (isset($_SESSION['username'])) {
+// session_destroy();
+// } else {
+// header("Location: ./login.html");
+// exit();
+// }
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +76,16 @@ if (isset($_SESSION['username'])) {
                         <div class="start_bt"><button onclick="Boat_Start(5)" class="Bt">Start</button></div>
                         <div class="end_bt"><button onclick="Boat_End(5)" class="Bt">End</button></div>
                     </div>
-
+                    <span id="Trouble_info">If your boats got some troubles click the buttons below</span>
+                    <div id="trouble_div" class="boat_list">
+                        <button class="Bt" onclick="Stop_boat(0)">Boat 0</button>
+                        <button class="Bt" onclick="Stop_boat(1)">Boat 1</button>
+                        <button class="Bt" onclick="Stop_boat(2)">Boat 2</button>
+                        <button class="Bt" onclick="Stop_boat(3)">Boat 3</button>
+                        <button class="Bt" onclick="Stop_boat(4)">Boat 4</button>
+                        <button class="Bt" onclick="Stop_boat(5)">Boat 5</button>
+                    </div>
+                    <span id="Trouble_info">click once to disable the boat,twice to enable the boat</span>
                 </div>
             </div>
             <div id="right-side">
