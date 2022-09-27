@@ -1,10 +1,8 @@
 <?php
 session_start();
 if (isset($_SESSION['username'])) {
-    echo 'aaa';
     session_destroy();
 } else {
-    echo 'aaa';
     header("Location: ./login.html");
     exit();
 }
