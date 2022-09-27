@@ -1,8 +1,12 @@
 var boat_status = [0, 0, 0, 0, 0, 0]
 var boat_start_time = ['', '', '', '', '', '']
-var rent_time = 0
+var total_rent_time = 0
 var rent_times = 0
 var max_time = 0
+var total_rent_time_pm = 0
+var rent_times_pm = 0
+var max_time_pm = 0
+var print_flag = 0
 function Boat_Start(idx) {
     var div = document.getElementById("main").children[idx + 1]
     var div1 = document.getElementById("main").children[idx + 1].children[2].children[0]
@@ -18,7 +22,6 @@ function Boat_Start(idx) {
 
 function Boat_End(idx) {
     if (boat_status[idx] == 1) {
-        rent_times++
         boat_status[idx] = 0
         var div = document.getElementById("main").children[idx + 1]
         div.className = 'boat_list'
@@ -55,17 +58,34 @@ function Boat_End(idx) {
         } else {
             min = Cur_min - Start_min
         }
-        This_time = 0
-        rent_time += min
-        if (hour > 0) {
-            rent_time += 60 * hour
-        }
-        This_time += min
-        if (hour > 0) {
-            This_time += 60 * hour
-        }
-        if (This_time > max_time) {
-            max_time = This_time
+        if (Cur_Time.substring(0, 2) <= 12) {
+            rent_times++
+            This_time = 0
+            total_rent_time += min
+            if (hour > 0) {
+                total_rent_time += 60 * hour
+            }
+            This_time += min
+            if (hour > 0) {
+                This_time += 60 * hour
+            }
+            if (This_time > max_time) {
+                max_time = This_time
+            }
+        } else {
+            rent_times_pm++
+            This_time = 0
+            total_rent_time_pm += min
+            if (hour > 0) {
+                total_rent_time_pm += 60 * hour
+            }
+            This_time += min
+            if (hour > 0) {
+                This_time += 60 * hour
+            }
+            if (This_time > max_time_pm) {
+                max_time_pm = This_time
+            }
         }
         console.log(Cur_hours - Start_hour)
         console.log(Cur_min - Start_min)
@@ -75,10 +95,8 @@ function Boat_End(idx) {
     }
 }
 
-print_flag = 0
-
 function system_info() {
-    window.setInterval("Check()", 60000)
+    window.setInterval("Check()", 6000)
 }
 
 function Check() {
@@ -90,9 +108,14 @@ function Check() {
     min = parseInt(min)
     console.log(hour)
     console.log(min)
-    if (hour == 23 && min == 59 && print_flag == 0) {
+    if (hour == 20 && min == 11 && print_flag == 0) {
         print_flag = 1
-        alert("Today " + String(rent_times) + " are rented\n" + "The averagy renting time is " + String(parseInt(rent_time / rent_times)) + " minutes\n" + "The longest renting time is : " + String(max_time) + "minutes")
+        boat_message = "This Morning " + String(rent_times) + " are rented\n" + "The averagy renting time is "
+        boat_message += String(parseInt(total_rent_time / rent_times)) + " minutes\n" + "The longest renting time is : "
+        boat_message += String(max_time) + "minutes\n"
+        boat_message += "This Afternoon " + String(rent_times_pm) + " are rented\n" + "The averagy renting time is "
+        boat_message += String(parseInt(total_rent_time_pm / rent_times_pm)) + " minutes\n" + "The longest renting time is : "
+        boat_message += String(max_time_pm) + "minutes"
+        alert(boat_message)
     }
-
 }
