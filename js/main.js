@@ -2,6 +2,7 @@ var boat_status = [0, 0, 0, 0, 0, 0]
 var boat_start_time = ['', '', '', '', '', '']
 var rent_time = 0
 var rent_times = 0
+var max_time = 0
 function Boat_Start(idx) {
     var div = document.getElementById("main").children[idx + 1]
     var div1 = document.getElementById("main").children[idx + 1].children[2].children[0]
@@ -54,9 +55,17 @@ function Boat_End(idx) {
         } else {
             min = Cur_min - Start_min
         }
+        This_time = 0
         rent_time += min
         if (hour > 0) {
             rent_time += 60 * hour
+        }
+        This_time += min
+        if (hour > 0) {
+            This_time += 60 * hour
+        }
+        if (This_time > max_time) {
+            max_time = This_time
         }
         console.log(Cur_hours - Start_hour)
         console.log(Cur_min - Start_min)
@@ -83,7 +92,7 @@ function Check() {
     console.log(min)
     if (hour == 23 && min == 59 && print_flag == 0) {
         print_flag = 1
-        alert("Today " + String(rent_times) + " are rented\n" + "The averagy renting time is " + String(parseInt(rent_time / rent_times)) + " minutes")
+        alert("Today " + String(rent_times) + " are rented\n" + "The averagy renting time is " + String(parseInt(rent_time / rent_times)) + " minutes\n" + "The longest renting time is : " + String(max_time) + "minutes")
     }
 
 }
