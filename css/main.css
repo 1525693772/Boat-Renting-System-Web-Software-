@@ -1,15 +1,15 @@
-#header{
+#header {
     background-color: coral;
     padding-left: 10px;
     padding-right: 10px;
 }
 
-#container{
+#container {
     width: 100%;
     height: 100%;
 }
 
-#body-main{
+#body-main {
     display: flex;
     justify-content: space-between;
     position: absolute;
@@ -19,22 +19,22 @@
     bottom: 0;
 }
 
-#left-side{
+#left-side {
     width: 193px;
     background-color: blueviolet;
 }
 
-#body{
+#body {
     width: 1150px;
     background-color: blue;
 }
 
-#right-side{
+#right-side {
     width: 193px;
     background-color: aquamarine;
 }
 
-#left_inside{
+#left_inside {
     position: relative;
     text-align: center;
     top: 25%;
@@ -44,7 +44,7 @@
     background-color: aliceblue;
 }
 
-#right_inside{
+#right_inside {
     position: relative;
     top: 25%;
     left: 15%;
@@ -53,16 +53,16 @@
     background-color: aliceblue;
 }
 
-#main{
+#main {
     margin-top: 30px;
     margin-left: 75px;
     margin-top: 50px;
     width: 1000px;
-    height: 500px;
+    height: 550px;
     background-color: aliceblue;
 }
 
-.boat_list{
+.boat_list {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
@@ -72,7 +72,17 @@
     background-color: aqua;
 }
 
-.running_boat_list{
+.stop_boat_list {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-left: 10%;
+    width: 80%;
+    height: 50px;
+    background-color: red;
+}
+
+.running_boat_list {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
@@ -82,46 +92,46 @@
     background-color: gray;
 }
 
-#main_header_text{
+#main_header_text {
     font-size: 50px;
     color: violet;
 }
 
-.boat_id{
+.boat_id {
     text-align: center;
     padding: 10px;
     width: 10%;
     height: 50px;
 }
 
-.start_time{
+.start_time {
     padding: 10px;
     width: 30%;
     height: 50px;
 }
 
-.duration{
+.duration {
     padding: 10px;
     width: 20%;
     height: 50px;
 }
 
-.start_bt{
+.start_bt {
     width: 10%;
     height: 50px;
 }
 
-.end_bt{
+.end_bt {
     width: 10%;
     height: 50px;
 }
 
-.boat_id_text{
+.boat_id_text {
     font-size: 20px;
     color: tomato;
 }
 
-.Bt{
+.Bt {
     margin-top: 5px;
     text-align: center;
     font-size: 20px;
@@ -133,4 +143,13 @@
     transition: letter-spacing 0.4s, font-size 0.4s;
     cursor: pointer;
     color: red;
+}
+
+#Trouble_info {
+    font-size: 22px;
+    color: red;
+}
+
+#trouble_div{
+    background-color: greenyellow;
 }
